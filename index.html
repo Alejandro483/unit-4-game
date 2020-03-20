@@ -47,26 +47,53 @@
 
     <div class="container" style="text-align: center;">
         <span>
-            <button><h1>crystal1</h1></button>
+            <button id="button1"><h1>crystal1</h1></button>
         </span>
         <span>
-            <button><h1>crystal2</h1></button>
+            <button id="button2"><h1>crystal2</h1></button>
         </span>
         <span>
-            <button><h1>crystal3</h1></button>
+            <button id="button3"><h1>crystal3</h1></button>
         </span>
         <span>
-            <button><h1>crystal4</h1></button>
+            <button id="button4"><h1>crystal4</h1></button>
         </span>
         <br><br>
     </div>
-    <div class="container" style="background-color: rgba(0, 128, 0, 0.5);">
+    <div class="randomNumber" style="background-color: rgba(0, 128, 0, 0.5);">
     <div>
         <h1>Your total score is:</h1>
     </div>
-    <div>
-        <h1>99</h1>
-    </div>
+    <div></div>
 </div>
+
+<script>
+    function randomNumberGenerator() {
+           return Math.random(math.min[1], math.max[12]);
+    }
+$("#button1").on("click",function(){
+    var number = randomNumberGenerator()
+    var currentText = $(".randomNumber").html()
+    $(".randomNumber").html(number + currentText);
+});
+$("#button2").on("click",function(){
+    var number = randomNumberGenerator()
+    var currentText = $(".randomNumber").html()
+    $(".randomNumber").html(number + currentText);
+});
+$("#button3").on("click",function(){
+    var number = randomNumberGenerator()
+    var currentText = $(".randomNumber").html()
+    $(".randomNumber").html(number + currentText);
+});
+$("#button4").on("click",function(){
+    var number = randomNumberGenerator()
+    var currentText = $(".randomNumber").html()
+    $(".randomNumber").html(number + currentText);
+});
+
+
+
+</script>
 </body>
 </html>
