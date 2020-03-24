@@ -39,7 +39,7 @@
         <div class="container" style="background-color: rgba(255, 99, 71); color: ivory; columns: lg -6px;">
             <ul>
                 <li id="wins">Wins:</li>
-                <li id="Losses">Losses:</li>
+                <li id="losses">losses:</li>
             </ul>
         </div>
     
@@ -80,81 +80,83 @@ function randomNumberGenerator(max, min) {
     }
 
 var TargetNumber = randomNumberGenerator(120,19);
-var currentText = $("#target").html()
-    $("#target").html(TargetNumber + currentText);
+ $("#target").html(TargetNumber)
 
 
 
 var crystal1 = randomNumberGenerator(12,1);
-var currentText = $("#button1").html()
-    $("#button1").html(crystal1 + currentText);
+    $("#button1").html(crystal1);
     $( "#button1" ).click(function() {
-    var paddCrystal1 = parseInt(crystal1);
     console.log(total);
     total += crystal1;
-    $("#total").html(crystal1 + total);   
-    alert;
+    $("#total").html(total);   
+    winloose();
 });
 
     var crystal2 = randomNumberGenerator(12,1);
-var currentText = $("#button2").html()
-    $("#button2").html(crystal2 + currentText);
+
+    $("#button2").html(crystal2);
     $( "#button2" ).click(function() {
-    var paddCrystal2 = parseInt(crystal2);
     console.log(total);
     total += crystal2;
-    $("#total").html(crystal2 + total); 
-    alert; 
+    $("#total").html(total); 
+    winloose(); 
     });
 
     var crystal3 = randomNumberGenerator(12,1);
-var currentText = $("#button3").html()
-    $("#button3").html(crystal3 + currentText);
+
+    $("#button3").html(crystal3);
     $( "#button3" ).click(function() {
-     var paddCrystal3 = parseInt(crystal3);
-    console.log(total);
+     console.log(total);
     total += crystal3;
-    $("#total").html(crystal3 + total);  
-    alert;
+    $("#total").html(total);  
+    winloose();
     });
 
     var crystal4 = randomNumberGenerator(12,1);
-var currentText = $("#button4").html()
-    $("#button4").html(crystal4 + currentText);
+
+    $("#button4").html(crystal4);
     $( "#button4" ).click(function() {
-     var paddCrystal4 = parseInt(crystal4);
     console.log(total);
     total += crystal4;
-    $("#total").html(crystal4 + total);  
-    alert;
+    $("#total").html(total);  
+    winloose();
     });
 
-function alert = () {
-    if ("#total" === "#target") {
+function winloose () {
+    if (total === TargetNumber) {
         alert("You win!");
         wins++
         $("#wins").html(wins);
         reset();
-    } else if ("#total" > "#target") {
+    } else if (total > TargetNumber) {
         alert("Try again");
         losses++
         $("#losses").html(losses);
         reset();
-    }
+            }
+}
    
-
-
-
-
-const reset = () => {
-    wins = 0;
-    losses = 0;
+function reset () {
     total = 0;
     TargetNumber = randomNumberGenerator(120,19);
+    $("#target").html(TargetNumber)
+
+    crystal1 = randomNumberGenerator(12,1);
+    $("#button1").html(crystal1);
+    crystal2 = randomNumberGenerator(12,1);
+    $("#button2").html(crystal2);
+    crystal3 = randomNumberGenerator(12,1);
+    $("#button3").html(crystal3);
+    crystal4 = randomNumberGenerator(12,1);
+    $("#button4").html(crystal4);
     
 }
-    }
+    
 });
 </script>
 </body>
 </html>
+<!-- 
+fix the total score back to cero
+the buttons shouldnt show the value assigned only text -->
