@@ -25,7 +25,7 @@
 
     <div class="container" id="instructions" style="background-color: rgba(255, 99, 71, 0.678); color: rgb(6, 71, 34);">
         <p>1) You'll be given a random number in the green box at the begining of the game.</p>
-        <p>2) There are 4 crystals at the top. Every crystal represents a number.</p>
+        <p>2) There are 4 crystals at the bottom. Every crystal represents a number.</p>
         <p>3) Click on the crystals as many times trying to match the number on the breen box without going over.</p>
         <p>4) You win if you can match the number provided. You lose if you go over it.</p>
         <p>5) You have to figure out the value of every crystal by clicking on them.</p>
@@ -33,19 +33,19 @@
     </div>
 
     <div>
-        <div class="container" style="background-color: rgba(0, 128, 0, 0.705);">
-            <h1>99</h1>
+        <div class="container" style="background-color: rgba(0, 128, 0, 0.705); columns: lg -6px;">
+            <h1>Target number: <span id="target"></span></h1>
         </div>
-        <div class="container" style="background-color: rgba(255, 99, 71); color: ivory;">
+        <div class="container" style="background-color: rgba(255, 99, 71); color: ivory; columns: lg -6px;">
             <ul>
-                <li>Wins:</li>
-                <li>Losses:</li>
+                <li id="wins">Wins:</li>
+                <li id="Losses">Losses:</li>
             </ul>
         </div>
     
     </div>
 
-    <div class="container" style="text-align: center;">
+    <div class="container1" style="text-align: center;">
         <span>
             <button id="button1"><h1>crystal1</h1></button>
         </span>
@@ -62,38 +62,99 @@
     </div>
     <div class="randomNumber" style="background-color: rgba(0, 128, 0, 0.5);">
     <div>
-        <h1>Your total score is:</h1>
+        <h1 class="yts">Your total score is: <span id="total"></span></h1>
     </div>
     <div></div>
 </div>
 
 <script>
-    function randomNumberGenerator() {
-           return Math.random(math.min[1], math.max[12]);
+    $(document).ready(function(){
+
+var  wins = 0;
+var losses = 0;
+var total = 0;
+
+
+function randomNumberGenerator(max, min) {
+     return Math.floor(Math.random() * (max - min) + min);
     }
-$("#button1").on("click",function(){
-    var number = randomNumberGenerator()
-    var currentText = $(".randomNumber").html()
-    $(".randomNumber").html(number + currentText);
-});
-$("#button2").on("click",function(){
-    var number = randomNumberGenerator()
-    var currentText = $(".randomNumber").html()
-    $(".randomNumber").html(number + currentText);
-});
-$("#button3").on("click",function(){
-    var number = randomNumberGenerator()
-    var currentText = $(".randomNumber").html()
-    $(".randomNumber").html(number + currentText);
-});
-$("#button4").on("click",function(){
-    var number = randomNumberGenerator()
-    var currentText = $(".randomNumber").html()
-    $(".randomNumber").html(number + currentText);
-});
+
+var TargetNumber = randomNumberGenerator(120,19);
+var currentText = $("#target").html()
+    $("#target").html(TargetNumber + currentText);
 
 
 
+var crystal1 = randomNumberGenerator(12,1);
+var currentText = $("#button1").html()
+    $("#button1").html(crystal1 + currentText);
+    $( "#button1" ).click(function() {
+    var paddCrystal1 = parseInt(crystal1);
+    console.log(total);
+    total += crystal1;
+    $("#total").html(crystal1 + total);   
+    alert;
+});
+
+    var crystal2 = randomNumberGenerator(12,1);
+var currentText = $("#button2").html()
+    $("#button2").html(crystal2 + currentText);
+    $( "#button2" ).click(function() {
+    var paddCrystal2 = parseInt(crystal2);
+    console.log(total);
+    total += crystal2;
+    $("#total").html(crystal2 + total); 
+    alert; 
+    });
+
+    var crystal3 = randomNumberGenerator(12,1);
+var currentText = $("#button3").html()
+    $("#button3").html(crystal3 + currentText);
+    $( "#button3" ).click(function() {
+     var paddCrystal3 = parseInt(crystal3);
+    console.log(total);
+    total += crystal3;
+    $("#total").html(crystal3 + total);  
+    alert;
+    });
+
+    var crystal4 = randomNumberGenerator(12,1);
+var currentText = $("#button4").html()
+    $("#button4").html(crystal4 + currentText);
+    $( "#button4" ).click(function() {
+     var paddCrystal4 = parseInt(crystal4);
+    console.log(total);
+    total += crystal4;
+    $("#total").html(crystal4 + total);  
+    alert;
+    });
+
+function alert = () {
+    if ("#total" === "#target") {
+        alert("You win!");
+        wins++
+        $("#wins").html(wins);
+        reset();
+    } else if ("#total" > "#target") {
+        alert("Try again");
+        losses++
+        $("#losses").html(losses);
+        reset();
+    }
+   
+
+
+
+
+const reset = () => {
+    wins = 0;
+    losses = 0;
+    total = 0;
+    TargetNumber = randomNumberGenerator(120,19);
+    
+}
+    }
+});
 </script>
 </body>
 </html>

@@ -29,3 +29,13 @@ Crystal Collector Game
 * The random number shown at the start of the game should be between 19 - 120.
 
 * Each crystal should have a random hidden value between 1 - 12.
+
+
+
+
+document ready
+
+assign values to the buttons and the total.
+
+make a reset function
+restart the game
