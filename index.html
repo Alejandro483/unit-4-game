@@ -45,9 +45,9 @@
     
     </div>
 
-    <div class="container1" style="text-align: center;">
+    <div class="container1" style="text-align: center; ">
         <span>
-            <button id="button1"><h1>crystal1</h1></button>
+            <button id="button1"+><h1>crystal1</h1></button>
         </span>
         <span>
             <button id="button2"><h1>crystal2</h1></button>
@@ -67,12 +67,23 @@
     <div></div>
 </div>
 
+<style>
+    #button1, #button2, #button3, #button4{
+        background-color: lavender;
+        color: black;
+        padding: 30px 40px;
+        font-size: 0px;
+
+    }
+</style>
+
 <script>
     $(document).ready(function(){
 
 var  wins = 0;
 var losses = 0;
 var total = 0;
+
 
 
 function randomNumberGenerator(max, min) {
@@ -94,7 +105,6 @@ var crystal1 = randomNumberGenerator(12,1);
 });
 
     var crystal2 = randomNumberGenerator(12,1);
-
     $("#button2").html(crystal2);
     $( "#button2" ).click(function() {
     console.log(total);
@@ -104,7 +114,6 @@ var crystal1 = randomNumberGenerator(12,1);
     });
 
     var crystal3 = randomNumberGenerator(12,1);
-
     $("#button3").html(crystal3);
     $( "#button3" ).click(function() {
      console.log(total);
@@ -114,7 +123,6 @@ var crystal1 = randomNumberGenerator(12,1);
     });
 
     var crystal4 = randomNumberGenerator(12,1);
-
     $("#button4").html(crystal4);
     $( "#button4" ).click(function() {
     console.log(total);
@@ -139,6 +147,7 @@ function winloose () {
    
 function reset () {
     total = 0;
+    $("#total").html(total)
     TargetNumber = randomNumberGenerator(120,19);
     $("#target").html(TargetNumber)
 
@@ -158,5 +167,5 @@ function reset () {
 </body>
 </html>
 <!-- 
-fix the total score back to cero
+
 the buttons shouldnt show the value assigned only text -->
