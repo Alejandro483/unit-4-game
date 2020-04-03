@@ -1,0 +1,8 @@
+#button1, #button2, #button3, #button4{
+    background-color: lavender;
+    color: black;
+    padding: 30px 40px;
+    font-size: 0px;
+    width: 20px;
+    height: 20px;
+}

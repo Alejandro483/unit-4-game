@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crystal Collector Game</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <script
-			  src="https://code.jquery.com/jquery-3.4.1.js"
-			  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-              crossorigin="anonymous"></script>
-              
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
 </head>
+
 <body>
-     
+
     <div class="jumbotron" style="text-align: center; color: white;  background-color:rgba(218, 29, 15, 0.836) ">
-        
+
         <h1>Crystal Collector Game</h1>
     </div>
 
@@ -42,129 +43,139 @@
                 <li id="losses">losses:</li>
             </ul>
         </div>
-    
+
     </div>
 
     <div class="container1" style="text-align: center; ">
         <span>
-            <button id="button1"+><h1>crystal1</h1></button>
+            <button class="buttons" id="button1">
+                <img src="/assets/1.jpg" alt="crystal1" width="100" height="100">
+            </button>
         </span>
         <span>
-            <button id="button2"><h1>crystal2</h1></button>
+            <button class="buttons" id="button2" >
+                <img src="/assets/2.jpg" alt="crystal2" width="100" height="100">
+            </button>
         </span>
         <span>
-            <button id="button3"><h1>crystal3</h1></button>
+            <button class="buttons" id="button3">
+                <img src="/assets/3.png" alt="crystal3" width="100" height="100">
+            </button>
         </span>
         <span>
-            <button id="button4"><h1>crystal4</h1></button>
+            <button class="buttons" id="button4">
+                <img src="/assets/4.png" alt="crystal4" width="100" height="100">
+            </button>
         </span>
         <br><br>
     </div>
     <div class="randomNumber" style="background-color: rgba(0, 128, 0, 0.5);">
-    <div>
-        <h1 class="yts">Your total score is: <span id="total"></span></h1>
+        <div>
+            <h1 class="yts">Your total score is: <span id="total"></span></h1>
+        </div>
+        <div></div>
     </div>
-    <div></div>
-</div>
-
-<style>
-    #button1, #button2, #button3, #button4{
-        background-color: lavender;
-        color: black;
-        padding: 30px 40px;
-        font-size: 0px;
-
-    }
-</style>
-
-<script>
-    $(document).ready(function(){
-
-var  wins = 0;
-var losses = 0;
-var total = 0;
 
 
 
-function randomNumberGenerator(max, min) {
-     return Math.floor(Math.random() * (max - min) + min);
-    }
+    <script>
+        $(document).ready(function () {
 
-var TargetNumber = randomNumberGenerator(120,19);
- $("#target").html(TargetNumber)
+            var wins = 0;
+            var losses = 0;
+            var total = 0;
 
 
 
-var crystal1 = randomNumberGenerator(12,1);
-    $("#button1").html(crystal1);
-    $( "#button1" ).click(function() {
-    console.log(total);
-    total += crystal1;
-    $("#total").html(total);   
-    winloose();
-});
-
-    var crystal2 = randomNumberGenerator(12,1);
-    $("#button2").html(crystal2);
-    $( "#button2" ).click(function() {
-    console.log(total);
-    total += crystal2;
-    $("#total").html(total); 
-    winloose(); 
-    });
-
-    var crystal3 = randomNumberGenerator(12,1);
-    $("#button3").html(crystal3);
-    $( "#button3" ).click(function() {
-     console.log(total);
-    total += crystal3;
-    $("#total").html(total);  
-    winloose();
-    });
-
-    var crystal4 = randomNumberGenerator(12,1);
-    $("#button4").html(crystal4);
-    $( "#button4" ).click(function() {
-    console.log(total);
-    total += crystal4;
-    $("#total").html(total);  
-    winloose();
-    });
-
-function winloose () {
-    if (total === TargetNumber) {
-        alert("You win!");
-        wins++
-        $("#wins").html(wins);
-        reset();
-    } else if (total > TargetNumber) {
-        alert("Try again");
-        losses++
-        $("#losses").html(losses);
-        reset();
+            function randomNumberGenerator(max, min) {
+                return Math.floor(Math.random() * (max - min) + min);
             }
-}
-   
-function reset () {
-    total = 0;
-    $("#total").html(total)
-    TargetNumber = randomNumberGenerator(120,19);
-    $("#target").html(TargetNumber)
 
-    crystal1 = randomNumberGenerator(12,1);
-    $("#button1").html(crystal1);
-    crystal2 = randomNumberGenerator(12,1);
-    $("#button2").html(crystal2);
-    crystal3 = randomNumberGenerator(12,1);
-    $("#button3").html(crystal3);
-    crystal4 = randomNumberGenerator(12,1);
-    $("#button4").html(crystal4);
-    
-}
-    
-});
-</script>
+            var TargetNumber = randomNumberGenerator(120, 19);
+            $("#target").html(TargetNumber)
+
+            $(".buttons").click(function () {
+                var crytalVal = parseInt($(this).val())
+                console.log(typeof crytalVal)
+                console.log(this)
+                console.log(crytalVal)
+                total += crytalVal
+                $("#total").html(total);
+                winloose();
+            })
+
+            var crystal1 = randomNumberGenerator(12, 1);
+            // $("#button1").val(crystal1);
+            $("#button1").val(crystal1);
+            // $("#button1").click(function () {
+            //     console.log(total);
+            //     total += crystal1;
+            //     $("#total").html(total);
+            //     winloose();
+            // });
+
+            var crystal2 = randomNumberGenerator(12, 1);
+            $("#button2").val(crystal2);
+            // $("#button2").click(function () {
+            //     console.log(total);
+            //     total += crystal2;
+            //     $("#total").html(total);
+            //     winloose();
+            // });
+
+            var crystal3 = randomNumberGenerator(12, 1);
+            $("#button3").val(crystal3);
+            // $("#button3").click(function () {
+            //     console.log(total);
+            //     total += crystal3;
+            //     $("#total").html(total);
+            //     winloose();
+            // });
+
+            var crystal4 = randomNumberGenerator(12, 1);
+            $("#button4").val(crystal4);
+            // $("#button4").click(function () {
+            //     console.log(total);
+            //     total += crystal4;
+            //     $("#total").html(total);
+            //     winloose();
+            // });
+
+            function winloose() {
+                if (total === TargetNumber) {
+                    alert("You win!");
+                    wins++
+                    $("#wins").html(wins);
+                    reset();
+                } else if (total > TargetNumber) {
+                    alert("Try again");
+                    losses++
+                    $("#losses").html(losses);
+                    reset();
+                }
+            }
+
+            function reset() {
+                total = 0;
+                $("#total").html(total)
+                TargetNumber = randomNumberGenerator(120, 19);
+                $("#target").html(TargetNumber)
+
+                crystal1 = randomNumberGenerator(12, 1);
+                $("#button1").val(crystal1);
+                crystal2 = randomNumberGenerator(12, 1);
+                $("#button2").val(crystal2);
+                crystal3 = randomNumberGenerator(12, 1);
+                $("#button3").val(crystal3);
+                crystal4 = randomNumberGenerator(12, 1);
+                $("#button4").val(crystal4);
+
+            }
+
+        });
+    </script>
 </body>
+
 </html>
 <!-- 
 
